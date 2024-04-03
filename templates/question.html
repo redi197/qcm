@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App - Question</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='question.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Quiz Question</h1>
+        <form method="post">
+            <!-- Question HTML here -->
+            {{ questions_html | safe }}
+            <input type="submit" value="Submit Answers">
+        </form>
+    </div>
+</body>
+</html>

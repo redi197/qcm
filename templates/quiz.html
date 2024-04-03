@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Quiz App</h1>
+        <form method="post">
+            Select difficulty:
+            <select name="difficulty">
+                <option value="&">Easy</option>
+                <option value="&&">Normal</option>
+                <option value="&&&">Hard</option>
+            </select>
+            <br>
+            Select topic:
+            <select name="topic">
+                <option value="Math">Math</option>
+                <option value="Science">Science</option>
+                <option value="History">History</option>
+            </select>
+            <input type="submit" value="Start Quiz">
+        </form>
+        <form action="{{ url_for('upload_and_return_to_quiz') }}" method="post" enctype="multipart/form-data" id="uploadForm">
+            <label for="file">Ajouter CSV:</label>
+            <input type="file" id="file" name="file" accept=".csv">
+            <input type="submit" value="Envoyer" onclick="showAlert()">
+        </form>
+    </div>
+    <script>
+        function showAlert() {
+            var fileInput = document.getElementById("file");
+            if (fileInput.files.length === 0) {
+                alert("Veuillez sélectionner un fichier à télécharger.");
+            }
+            else {
+                alert("File uploaded successfully!");
+            }
+        }
+    </script>
+</body>
+</html>
